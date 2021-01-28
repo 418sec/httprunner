@@ -30,7 +30,7 @@ def _load_yaml_file(yaml_file: Text) -> Dict:
     """
     with open(yaml_file, mode="rb") as stream:
         try:
-            yaml_content = yaml.load(stream)
+            yaml_content = yaml.safe_load(stream)
         except yaml.YAMLError as ex:
             err_msg = f"YAMLError:\nfile: {yaml_file}\nerror: {ex}"
             logger.error(err_msg)
